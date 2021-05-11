@@ -1,0 +1,10 @@
+{
+    "demo":{
+        "appDevUrl":"http://10.45.60.51:8888",
+        "comList":{
+            "deviceManger":"DeviceManager",
+            "congest":"CongestContent"
+        },
+        "commonJs":["girdTool.js"]
+    }
+}

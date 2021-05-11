@@ -1,0 +1,9 @@
+{
+    "name":"app-list",
+    "author":"樵风",
+    "desc":"app小程序块注册列表v0.6.beta",
+    "appList":[
+        {"name":"home","path":"/dot/home","component":"home"},
+        {"name":"home2","path":"/dot/home2","component":"home2"}
+    ]
+}

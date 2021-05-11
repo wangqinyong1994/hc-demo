@@ -1,0 +1,9 @@
+.honeypack_cache/
+lang/
+node_modules/
+public/
+resource/
+styles/
+test/
+utils/
+build/

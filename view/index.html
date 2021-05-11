@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= title %></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="<%= prefix %>/assets/public/img/favicon.ico">
+  <link rel="stylesheet" href="<%= prefix %>/assets/app.css">
+  <style type="text/css">
+    html,body{
+            height:100%;
+        }
+        body{
+            margin: 0px 0px 0px 0px;
+        }
+  </style>
+  <link rel="shortcut icon" href="<%= prefix %>/assets/public/img/favicon.ico" type="image/vnd.microsoft.icon" />
+</head>
+<body>
+<div id="container" style="width:100%;height:100%;top:0px;left:0px;position:fixed;"></div>
+<script type="text/javascript">
+  window.CSRF_TOKEN = "<%= csrfToken %>";
+  window.mapServer = JSON.parse(unescape("<%= mapServer %>"));
+  window.prefix = "<%= prefix %>";
+  window.userInfo = JSON.parse(unescape("<%= userInfo %>"));
+  window.gisServerPrefix="<%= gisServerPrefix%>";
+  window.serviceUrl="<%= serviceUrl%>";
+  window.requestUrl="<%= requestUrl%>";
+  window.websocketServiceUrl="<%= websocketServiceUrl%>";
+  var cw = document.documentElement.clientWidth;
+        // if (cw > 1920) {
+        //     cw = 1920;
+        // }
+  document.getElementsByTagName("html")[0].style.fontSize = 16 * ( cw / 1920) + 'px';
+</script>
+<script type="text/javascript" src="<%= prefix %>/assets/utils/aliplayer/aliplayer.js"></script>
+<script type="text/javascript" src="<%= prefix %>/assets/utils/aliplayer/flv/aliplayer-flv.js"></script>
+<link rel="stylesheet" src="<%= prefix %>/assets/utils/aliplayer/aliplayer.2.7.4.css"></script>
+<script type="text/javascript" src="<%= prefix %>/assets/runtime.js"></script>
+<% if (isDebug) { %>
+  <script src="<%= prefix %>/assets/node_modules/babel-polyfill/dist/polyfill.js"></script>
+  <script src="<%= prefix %>/assets/node_modules/lodash/lodash.min.js"></script>
+<script src="<%= prefix %>/assets/node_modules/react/umd/react.development.js"></script>
+<script src="<%= prefix %>/assets/node_modules/react-dom/umd/react-dom.development.js"></script>
+  <script src="<%= prefix %>/assets/node_modules/intl/dist/Intl.min.js"></script>
+  <script src="<%= prefix %>/assets/node_modules/mobx/lib/mobx.umd.js"></script>
+<% } else { %>
+  <script src="<%= prefix %>/assets/lib/polyfill.min.js"></script>
+  <script src="<%= prefix %>/assets/lib/lodash.min.js"></script>
+<script src="<%= prefix %>/assets/lib/react.production.min.js"></script>
+<script src="<%= prefix %>/assets/lib/react-dom.production.min.js"></script>
+  <script src="<%= prefix %>/assets/lib/Intl.min.js"></script>
+  <script src="<%= prefix %>/assets/lib/mobx.umd.min.js"></script>
+  <% } %>
+  <!-- <script src="<%= gisServerPrefix %>/gisService/ZmapService/GetZmap?v=2.2&userId=321&uKey=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6InJ1eWkifQ.8sYNLtCMO9LxZla6ej99mVod903RaLPWRBv1vTEGZpw&platform=tocc"></script> -->
+  <script src="<%= gisServerPrefix %>/gisService/ZmapService/GetZmap?v=3.0.4&userId=321&uKey=iwhale"></script>
+  <script type="text/javascript" src="<%= prefix %>/assets/vendor.js"></script>
+  <script type="text/javascript" src="<%= prefix %>/assets/app.js"></script>
+
+</body>
+</html>

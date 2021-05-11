@@ -1,0 +1,38 @@
+2019-04-03
+优化打包编译配置，减少打包文件大小，修改内容包括：
+    1.增加change.log文件，记录后续所有更新。
+    2.view.html,增加第三方库mobx.umd.min.js、runtime.js等的文件引入。
+    3.assets/build.js,增加mobx.umd.min.js的自动拷贝。
+    4.Makefile,增加打包编译时的环境变量node-env为prod。
+    5.assets/webpack.config.js,增加编译优化的一些配置。
+    6.package.json及assets/package.json,暂时去除jest单元测试的依赖及图层管理组件。
+------------------------------------------------------------------------------------------------------------------
+2019-04-28
+微应用相关版本升级：本次主要对react-router升级到5.0；优化微应用组件加载机制的；路由跳转检校（待优）等，涉及文件如下：
+    1.view/inde.html,去除react-router相关umd引入。
+    2.route/index.jsx,去除加载微应用的循环逻辑，react-router5.0版本的组件懒加载模式，以及跳转检校。
+    3.package.json中react-router版本升级为5.0.0，新加react-router-dom@^5.0.0
+    4.Layout/index.jsx,Link改为从react-router-dom中引入。ps：项目中用到react-router的均需改为从react-router-dom中引入。
+    5.新增Bundle.jsx高阶组件，实现组件懒加载的。
+    6.utils/platform.jsx,全局变量window['platform']改为RY_PLATFORM对象提供。
+    7.map/index.jsx，去除mainMap全局变量赋值的逻辑。
+    8.comManager/index.jsx,RY_PLATFORM对象相关修改。
+    9.assets/index.jsx，RY_PLATFORM对象相关修改。
+----------------------------------------------------------------------------------------------------------------------
+2019-05-14
+assets/package.json增加history依赖，使用browserHistory方式：
+    1.新增router/history.js文件。
+    2.router/index.jsx中BrowserHistory组件改为使用Router组件，并指定属性history为自定义的history引入对象：
+        import history from './router/history'
+        <BrowerHistory basename="/whale-honeycomb">改为<Router basename="/whale-honeycomb" history={history} >
+    3.在需要调用的地方引入history对象，并正常使用history相关方法：
+        import history from '../../router/history'
+        history.push({pathname: '/demo/deviceManger'})
+        //以及其余方法：replace、goBack，goForward，go等。
+---------------------------------------------------------------------------------------------------------------------
+2019-05-22
+嵌入式微应用bug修复：
+    1.iframe置于最高层：comManager/EmbeddedContainer.jsx中iframe样式zIndex设为最大：2147483647。
+    2.嵌入式微应用判断后仍继续执行加载js代码的bug：comManager/index.jsx。
+
+

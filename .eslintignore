@@ -1,0 +1,9 @@
+assets/.honeypack_cache/
+assets/build/
+assets/lang/
+assets/node_modules/
+assets/public/
+assets/resource/
+assets/styles/
+assets/test/
+assets/utils/
